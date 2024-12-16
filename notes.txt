@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+this is main branch
+
+
+>>>>>>> 683038053538835d015fedc43a821f7627d0dc35
 Lab setup----
 1. install linux like sentos,ubantu etc 
 2. install jenkins(ubantu)
