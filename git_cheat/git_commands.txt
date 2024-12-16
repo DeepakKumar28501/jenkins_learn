@@ -1,0 +1,34 @@
+1. Configure the Pull (Upstream) Branch
+    --The pull branch determines where Git fetches updates from.
+    >> git branch --set-upstream-to=<remote>/<branch>
+    --Replace <remote> (e.g., origin) with your remote repository's name and <branch> with the branch
+
+you want to pull from.
+    >> git branch --set-upstream-to=origin/main
+
+
+2. Configure the Push Branch
+    -- By default, Git pushes to the same branch you are on, but you can set a different branch for pushing.
+
+    To set the push branch explicitly:
+    >> git config branch.<current-branch>.pushRemote <remote>
+    >> git config remote.<remote>.push +refs/heads/<branch>:refs/heads/<branch>
+
+    Example for pushing to a branch feature-push:
+    >> git config branch.main.pushRemote origin
+    >> git config remote.origin.push +refs/heads/feature-push:refs/heads/feature-push
+
+
+
+== Verify the Configuration
+    *To ensure the pull and push branches are set correctly, run:
+    >> git branch -vv      ----This will display all local branches, their tracking (upstream) branches, and their statuses.
+
+
+==set pull and push branch diffrent
+ Pull from --origin/main.
+ Push to --origin/development.
+Then Run:
+    >> git branch --set-upstream-to=origin/main
+    >> git config branch.main.pushRemote origin
+    >> git config remote.origin.push +refs/heads/development:refs/heads/development
