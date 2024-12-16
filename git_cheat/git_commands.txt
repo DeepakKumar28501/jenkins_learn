@@ -1,34 +1,147 @@
-1. Configure the Pull (Upstream) Branch
-    --The pull branch determines where Git fetches updates from.
-    >> git branch --set-upstream-to=<remote>/<branch>
-    --Replace <remote> (e.g., origin) with your remote repository's name and <branch> with the branch
 
-you want to pull from.
-    >> git branch --set-upstream-to=origin/main
+Git Cheat Sheet
+===============
 
+1. Configuration
+----------------
+- Set username:
+  git config --global user.name "Your Name"
 
-2. Configure the Push Branch
-    -- By default, Git pushes to the same branch you are on, but you can set a different branch for pushing.
+- Set email:
+  git config --global user.email "your.email@example.com"
 
-    To set the push branch explicitly:
-    >> git config branch.<current-branch>.pushRemote <remote>
-    >> git config remote.<remote>.push +refs/heads/<branch>:refs/heads/<branch>
-
-    Example for pushing to a branch feature-push:
-    >> git config branch.main.pushRemote origin
-    >> git config remote.origin.push +refs/heads/feature-push:refs/heads/feature-push
+- Check configuration:
+  git config --list
 
 
+2. Repository Management
+------------------------
+- Initialize a new repository:
+  git init
 
-== Verify the Configuration
-    *To ensure the pull and push branches are set correctly, run:
-    >> git branch -vv      ----This will display all local branches, their tracking (upstream) branches, and their statuses.
+- Clone a repository:
+  git clone <repository-url>
 
 
-==set pull and push branch diffrent
- Pull from --origin/main.
- Push to --origin/development.
-Then Run:
-    >> git branch --set-upstream-to=origin/main
-    >> git config branch.main.pushRemote origin
-    >> git config remote.origin.push +refs/heads/development:refs/heads/development
+3. Working with Changes
+-----------------------
+- Check the status of your working directory:
+  git status
+
+- Add files to the staging area:
+  git add <file>           # Add a specific file
+  git add .                # Add all files
+
+- Commit changes:
+  git commit -m "Commit message"
+
+- Unstage a file:
+  git reset <file>
+
+- Discard changes in a file:
+  git checkout -- <file>
+
+
+4. Branching
+------------
+- Create a new branch:
+  git branch <branch-name>
+
+- List all branches:
+  git branch
+
+- Switch to a branch:
+  git checkout <branch-name>
+
+- Create and switch to a branch:
+  git checkout -b <branch-name>
+
+- Merge a branch:
+  git merge <branch-name>
+
+- Delete a branch:
+  git branch -d <branch-name>
+
+
+5. Pulling and Pushing
+----------------------
+- Pull changes from a remote repository:
+  git pull origin <branch-name>
+
+- Push changes to a remote repository:
+  git push origin <branch-name>
+
+
+6. Viewing History
+------------------
+- Show commit history:
+  git log
+
+- Show a single-line summary of commit history:
+  git log --oneline
+
+- Show changes between commits:
+  git diff <commit1> <commit2>
+
+
+7. Working with Remotes
+-----------------------
+- Add a remote repository:
+  git remote add origin <repository-url>
+
+- List remote repositories:
+  git remote -v
+
+- Remove a remote:
+  git remote remove <name>
+
+
+8. Stashing
+-----------
+- Save changes for later:
+  git stash
+
+- List stashed changes:
+  git stash list
+
+- Apply stashed changes:
+  git stash apply
+
+- Drop a stash:
+  git stash drop
+
+
+9. Undoing Changes
+------------------
+- Undo the last commit but keep changes in the working directory:
+  git reset --soft HEAD~1
+
+- Undo the last commit and discard changes:
+  git reset --hard HEAD~1
+
+
+10. Advanced
+------------
+- Revert a commit:
+  git revert <commit-hash>
+
+- Cherry-pick a commit:
+  git cherry-pick <commit-hash>
+
+- Rebase branch:
+  git rebase <branch-name>
+
+- Squash commits:
+  git rebase -i HEAD~<number-of-commits>
+
+
+11. Miscellaneous
+-----------------
+- Clean untracked files:
+  git clean -f
+
+- Show a file’s history:
+  git log -p <file>
+
+- Show which branch you’re on:
+  git branch --show-current
