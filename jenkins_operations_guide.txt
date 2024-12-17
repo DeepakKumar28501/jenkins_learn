@@ -1,0 +1,90 @@
+
+Jenkins Operations and Basic Commands:
+
+1. Start Jenkins:
+   To start the Jenkins service:
+   sudo systemctl start jenkins
+
+2. Stop Jenkins:
+   To stop the Jenkins service:
+   sudo systemctl stop jenkins
+
+3. Restart Jenkins:
+   To restart Jenkins (useful after configuration changes):
+   sudo systemctl restart jenkins
+
+4. Check Jenkins Status:
+   To check if Jenkins is running and its current status:
+   sudo systemctl status jenkins
+
+5. Enable Jenkins to Start on Boot:
+   To enable Jenkins to start automatically on system boot:
+   sudo systemctl enable jenkins
+
+6. Disable Jenkins from Starting on Boot:
+   To disable Jenkins from starting automatically on system boot:
+   sudo systemctl disable jenkins
+
+7. Access Jenkins Web Interface:
+   Once Jenkins is running, you can access the Jenkins dashboard through a web browser:
+   http://localhost:8080
+   The first time you access Jenkins, you will be prompted for an unlock key found in the Jenkins home directory:
+   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+8. Check Jenkins Logs:
+   To check the logs of the Jenkins service, you can use the following command:
+   sudo journalctl -u jenkins.service --no-pager
+
+9. Install Plugins in Jenkins:
+   To install a plugin:
+   - Go to Manage Jenkins > Manage Plugins.
+   - In the Available tab, search for the desired plugin and click Install without restart or Install and restart.
+
+   Alternatively, install plugins via the command line:
+   sudo java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin <plugin-name>
+
+10. Create a New Job in Jenkins:
+    To create a new job:
+    - From the Jenkins dashboard, click New Item.
+    - Enter a name for the new job.
+    - Select the type of job you want to create (e.g., Freestyle Project, Pipeline).
+    - Configure the job by defining build steps, triggers, etc.
+
+11. Backup Jenkins Data:
+    To backup Jenkins data (including jobs, configurations, etc.), backup the Jenkins home directory:
+    sudo cp -r /var/lib/jenkins /path/to/backup/jenkins-backup
+    You can also backup the Jenkins configurations:
+    sudo cp -r /var/lib/jenkins/config.xml /path/to/backup/config.xml
+
+12. Update Jenkins:
+    To update Jenkins to the latest version:
+    sudo apt update
+    sudo apt upgrade jenkins
+    After updating, restart Jenkins:
+    sudo systemctl restart jenkins
+
+13. Access Jenkins CLI (Command Line Interface):
+    You can use the Jenkins CLI tool to interact with Jenkins from the command line. To use it:
+    - Download the Jenkins CLI tool from your Jenkins server:
+      wget http://localhost:8080/jnlpJars/jenkins-cli.jar
+    - Use the CLI tool to perform actions:
+      java -jar jenkins-cli.jar -s http://localhost:8080 version
+
+14. Backup Jenkins Jobs and Configuration:
+    To backup jobs and configuration, copy the Jenkins home directory:
+    sudo cp -r /var/lib/jenkins /path/to/backup
+    For configuration files:
+    sudo cp /var/lib/jenkins/config.xml /path/to/backup/config.xml
+
+Summary of Basic Jenkins Commands:
+
+| Command                               | Description                                  |
+|---------------------------------------|----------------------------------------------|
+| sudo systemctl start jenkins         | Start Jenkins                                |
+| sudo systemctl stop jenkins          | Stop Jenkins                                 |
+| sudo systemctl restart jenkins       | Restart Jenkins                              |
+| sudo systemctl status jenkins        | Check the status of Jenkins                  |
+| sudo systemctl enable jenkins        | Enable Jenkins to start on boot              |
+| sudo systemctl disable jenkins       | Disable Jenkins from starting on boot        |
+| sudo journalctl -u jenkins.service   | View Jenkins service logs                    |
+| java -jar jenkins-cli.jar            | Use Jenkins CLI to interact with Jenkins     |

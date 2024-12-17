@@ -1,0 +1,304 @@
+
+Linux Commands for DevOps (Beginner to Advanced)
+===============================================
+
+1. **Basic Commands** (Beginner)
+--------------------------------
+- Show current working directory:
+  pwd
+
+- List files and directories:
+  ls
+
+- Change directory:
+  cd <directory-path>
+
+- Create a new directory:
+  mkdir <directory-name>
+
+- Remove a directory:
+  rmdir <directory-name>
+
+- Remove a file:
+  rm <file-name>
+
+- Copy a file:
+  cp <source> <destination>
+
+- Move or rename a file:
+  mv <source> <destination>
+
+- Display the contents of a file:
+  cat <file-name>
+
+- Display contents of a file with pagination:
+  less <file-name>
+
+- Search for a string in a file:
+  grep <search-string> <file-name>
+
+- Find a file by name:
+  find / -name <file-name>
+
+
+2. **File Permissions** (Beginner to Intermediate)
+--------------------------------------------------
+- Check file permissions:
+  ls -l <file-name>
+
+- Change file permissions:
+  chmod <permissions> <file-name>
+
+- Change file owner:
+  chown <user>:<group> <file-name>
+
+- Change file group:
+  chgrp <group> <file-name>
+
+
+3. **System Monitoring** (Intermediate)
+--------------------------------------
+- Display system information:
+  uname -a
+
+- Show memory usage:
+  free -h
+
+- Display disk usage:
+  df -h
+
+- Show CPU usage:
+  top
+
+- Show system resource utilization:
+  htop  (requires installation)
+
+- Show running processes:
+  ps aux
+
+- Show active network connections:
+  netstat -tuln
+
+- Display current users:
+  who
+
+- Show system uptime:
+  uptime
+
+
+4. **Package Management** (Intermediate)
+----------------------------------------
+- Update package repository (Debian/Ubuntu):
+  sudo apt-get update
+
+- Install a package (Debian/Ubuntu):
+  sudo apt-get install <package-name>
+
+- Install a package (CentOS/RHEL):
+  sudo yum install <package-name>
+
+- Remove a package (Debian/Ubuntu):
+  sudo apt-get remove <package-name>
+
+- Remove a package (CentOS/RHEL):
+  sudo yum remove <package-name>
+
+
+5. **Networking** (Intermediate to Advanced)
+--------------------------------------------
+- Show IP address information:
+  ip a
+
+- Show network configuration:
+  ifconfig
+
+- Test network connectivity (ping a host):
+  ping <hostname>
+
+- Show active network connections:
+  netstat -tuln
+
+- Trace the route to a network host:
+  traceroute <hostname>  (requires installation)
+
+- Check port status:
+  nc -zv <hostname> <port-number>
+
+
+6. **Log Management** (Intermediate to Advanced)
+------------------------------------------------
+- View system logs:
+  tail -f /var/log/syslog
+
+- View specific logs (e.g., authentication log):
+  tail -f /var/log/auth.log
+
+- View system messages:
+  dmesg
+
+- Search logs for a specific pattern:
+  grep "<pattern>" /var/log/<log-file>
+
+
+7. **Process Management** (Intermediate to Advanced)
+---------------------------------------------------
+- View all running processes:
+  ps aux
+
+- Kill a process by PID:
+  kill <PID>
+
+- Kill a process by name:
+  pkill <process-name>
+
+- Start a process in the background:
+  <command> &
+
+- Bring a background process to the foreground:
+  fg <job-number>
+
+
+8. **Automation with Cron Jobs** (Advanced)
+-------------------------------------------
+- Edit cron jobs:
+  crontab -e
+
+- List current cron jobs:
+  crontab -l
+
+- Run a cron job every minute:
+  * * * * * <command>
+
+- Run a cron job every day at midnight:
+  0 0 * * * <command>
+
+
+9. **Advanced Commands for DevOps** (Advanced)
+---------------------------------------------
+- Monitor log file in real-time:
+  tail -f /var/log/<log-file>
+
+- Download files from a URL:
+  wget <URL>
+
+- Transfer files over SSH:
+  scp <file-name> <username>@<hostname>:<destination-path>
+
+- Securely copy files using rsync:
+  rsync -avz <source> <destination>
+
+- Schedule a command to run in the future:
+  at <time> <command>
+
+- Find and delete large files:
+  find / -type f -size +100M -exec rm -f {} \;
+
+- Display network interfaces and their IP addresses:
+  ip addr show
+
+- Find files by permissions:
+  find / -type f -perm <permission>
+
+
+10. **Containerization and Virtualization** (Advanced)
+------------------------------------------------------
+- Start a Docker container:
+  docker run -d <image-name>
+
+- List all running Docker containers:
+  docker ps
+
+- Stop a Docker container:
+  docker stop <container-id>
+
+- Remove a Docker container:
+  docker rm <container-id>
+
+- Build a Docker image from a Dockerfile:
+  docker build -t <image-name> .
+
+- Check Docker container logs:
+  docker logs <container-id>
+
+- List all Docker images:
+  docker images
+
+- Pull an image from Docker Hub:
+  docker pull <image-name>
+
+
+11. **File Compression and Archiving** (Advanced)
+-------------------------------------------------
+- Create a tar archive:
+  tar -cvf <archive-name.tar> <directory>
+
+- Extract a tar archive:
+  tar -xvf <archive-name.tar>
+
+- Compress a file with gzip:
+  gzip <file-name>
+
+- Decompress a file with gzip:
+  gunzip <file-name>.gz
+
+- Create a tar.gz archive:
+  tar -czvf <archive-name.tar.gz> <directory>
+
+
+12. **Security and Permissions** (Advanced)
+-------------------------------------------
+- Change file permissions:
+  chmod 755 <file-name>
+
+- Change file ownership:
+  chown <user>:<group> <file-name>
+
+- Change group ownership:
+  chgrp <group> <file-name>
+
+- Set file to be executable:
+  chmod +x <file-name>
+
+- Add a new user:
+  sudo useradd <username>
+
+- Change a user's password:
+  sudo passwd <username>
+
+- Add a new group:
+  sudo groupadd <group-name>
+
+- Add a user to a group:
+  sudo usermod -aG <group-name> <username>
+
+
+13. **Git and Version Control** (Advanced)
+------------------------------------------
+- Clone a Git repository:
+  git clone <repository-url>
+
+- Check the status of files in the working directory:
+  git status
+
+- Add files to staging:
+  git add <file-name>
+
+- Commit changes:
+  git commit -m "Commit message"
+
+- Create a new branch:
+  git branch <branch-name>
+
+- Switch to another branch:
+  git checkout <branch-name>
+
+- Merge branches:
+  git merge <branch-name>
+
+- Push changes to remote repository:
+  git push origin <branch-name>
+
+- Pull changes from remote repository:
+  git pull origin <branch-name>
+
+

@@ -1,0 +1,51 @@
+
+Steps to Install Java 17 and Configure Jenkins:
+
+Step 1: Install Java 17
+1. Update package information:
+   sudo apt update
+
+2. Install Java 17:
+   sudo apt install openjdk-17-jdk -y
+
+3. Verify the installation:
+   java -version
+   Ensure it shows 'openjdk version "17.0.x"'
+
+Step 2: Set Java 17 as Default
+1. Use 'update-alternatives' to configure Java:
+   sudo update-alternatives --config java
+
+2. In the prompt, select Java 17 (choose the number corresponding to '/usr/lib/jvm/java-17-openjdk-amd64/bin/java').
+
+Step 3: Update JAVA_HOME for Jenkins
+1. Edit the Jenkins configuration file:
+   sudo nano /etc/default/jenkins
+
+2. Ensure the 'JAVA_HOME' line points to Java 17:
+   JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+3. Save and exit the file (press Ctrl + X, then Y to confirm, and Enter).
+
+Step 4: Restart Jenkins Service
+1. Reload the systemd configuration:
+   sudo systemctl daemon-reload
+
+2. Restart Jenkins:
+   sudo systemctl restart jenkins
+
+3. Verify Jenkins' status:
+   sudo systemctl status jenkins
+
+Step 5: Access Jenkins
+- Open a web browser and go to:
+  http://localhost:8080
+
+Jenkins should now be running with Java 17.
+
+Summary:
+1. Install Java 17 using 'sudo apt install openjdk-17-jdk -y'.
+2. Set Java 17 as the default with 'update-alternatives --config java'.
+3. Update JAVA_HOME in '/etc/default/jenkins' to '/usr/lib/jvm/java-17-openjdk-amd64'.
+4. Restart Jenkins using 'sudo systemctl restart jenkins'.
+5. Access Jenkins at http://localhost:8080.
